@@ -30,6 +30,12 @@ function getListofprojectsPage(config={}){
     return navbar + listofprojectsPageHtmlFile
 }
 
+function getAboutmePage(config={}){
+    const aboutmePageHtmlFile = fs.readFileSync('./public/aboutme/aboutme.html').toString()
+    const navbar = getNavbar({tabTitle: config.tabTitle})
+    return navbar + aboutmePageHtmlFile
+}
+
 function getNavbar(config={}){
     const navbar = fs.readFileSync('./public/components/navbar.html')
     .toString()
@@ -42,4 +48,4 @@ function isThereConnection(){
     return "there is connection to the templateEngine module"
 }
 
-export { isThereConnection, getHomePage, getCvPage, getListofprojectsPage }
+export { isThereConnection, getHomePage, getCvPage, getListofprojectsPage, getAboutmePage }
