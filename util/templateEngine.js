@@ -11,17 +11,35 @@ const __dirname = dirname(__filename); */
 function getHomePage(config={}){
     const homePageHtmlFile =  fs.readFileSync('./public/homepage/homepage.html')
         .toString()
-        .replace('$TAB_TITLE', config.tabTitle || 'portfolio')
+        //.replace('$TAB_TITLE', config.tabTitle || 'portfolio')
 
-    return homePageHtmlFile
+    const navbar = getNavbar({tabTitle: config.tabTitle})
+
+    return navbar + homePageHtmlFile
 }
 
-function renderPage(page){
+function getCvPage(config={}){
+    const cvPageHtmlFile = fs.readFileSync('./public/cv/cv.html').toString()
+    const navbar = getNavbar({tabTitle: config.tabTitle})
+    return navbar + cvPageHtmlFile
+}
 
+function getListofprojectsPage(config={}){
+    const listofprojectsPageHtmlFile = fs.readFileSync('./public/listofprojects/listofprojects.html').toString()
+    const navbar = getNavbar({tabTitle: config.tabTitle})
+    return navbar + listofprojectsPageHtmlFile
+}
+
+function getNavbar(config={}){
+    const navbar = fs.readFileSync('./public/components/navbar.html')
+    .toString()
+    .replace('$TAB_TITLE', config.tabTitle || 'portfolio')
+
+    return navbar
 }
 
 function isThereConnection(){
     return "there is connection to the templateEngine module"
 }
 
-export { isThereConnection, getHomePage }
+export { isThereConnection, getHomePage, getCvPage, getListofprojectsPage }

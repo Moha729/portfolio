@@ -6,10 +6,9 @@ app.use(express.static("public"));
 
 //import templateEngine from '/Users/Dell 7480/Desktop/Portfolio/portfolio/portfolio/public/util/templateEngine.js';
 //const templateEngine = require('/public/util/templateEngine.js')
-import { isThereConnection, getHomePage } from './util/templateEngine.js';
+import { isThereConnection, getHomePage, getCvPage, getListofprojectsPage } from './util/templateEngine.js';
 
 console.log(isThereConnection());
-
 
 /* 
 /home
@@ -29,6 +28,20 @@ const homePageHtmlFile =  getHomePage({
     res.send(homePageHtmlFile) //{message: "insert index.html"} 
 })
 
+app.get('/cv', (req, res) => {
+    const cvPageHtmlFile = getCvPage({
+        tabTitle: "Portfolio | CV"
+    })
+    res.send(cvPageHtmlFile)
+})
+
+app.get('/listofprojects', (req, res) => {
+    const listofprojectsPageHtmlFile = getListofprojectsPage({
+        tabTitle: "Portfolio | Projects"
+    })
+
+    res.send(listofprojectsPageHtmlFile)
+})
 app.listen(8080, () => {
     console.log('running on port: 8080')
 })
