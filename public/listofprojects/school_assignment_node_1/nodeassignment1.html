@@ -1,0 +1,182 @@
+<h2> <srong>Mandatory |</srong> <br>Dat-Elective: Full Stack Development with NodeJS (Spring 2023)</h2>
+
+<hr>
+<h3>Assignemnt description</h3>
+<p>
+    My assignment is to create a website that contains documentation for what I have learned so far.</p>
+    <br><strong>Requirements for the project:</strong>
+    <br>Serve the pages with Express.
+    <br>Use Server-Side Rendering (SSR). 
+    <br>Split up the documentation in pages rather than one long HTML page.
+    <br>Should have some nice styling (custom or with a styling framework).
+</p>
+<p> 
+    <strong>Requirements about the documentation:</strong>
+    <br>Should contain terminal commands.
+    <br>Should contain code snippets.
+    <br>Should contain all the tools we’ve used and explain them.
+    <br>Should cover all the theory that we’ve touched upon.
+</p>
+
+<hr>
+<h3>What have I learned so far</h3>
+
+<hr>
+
+<h4>Create a new Node.js and install express</h4>
+
+<p>
+    1. Open the folder you want to work in:
+    <br>Linux:
+    <pre>
+        cd desktop/node-app
+    </pre>
+    2. Initialize a new 'package.json' file for your project. 
+    <pre>
+        npm init -y
+    </pre>
+    3. Install the 'Express' module. Express is a web framework for Node.js.
+    <pre>
+        npm i express 
+    </pre>
+    4. Create a file for the entry point for your app. 
+    <pre>
+        touch index.js 
+    </pre>
+    5. Specify that your project is using ECMAScript modules rather than CommonJS modules.
+    <br> Add this line in your 'package.json' file.
+    <pre>
+        "type": "module"
+    </pre>
+    6. Create your routes
+    <br> Add this inside 'index.js'
+    <pre>
+        //This imports the express library/module and assigns it to the express variable.
+        import express from 'express'
+
+        //This creates a new Express application and assigns it to the app variable.
+        const app = express()
+
+        //This allows us to use the express.static middleware function, which serves static files from the public directory. 
+        app.use(express.static("public"))
+
+        //This imports two functions from our custom module that generates HTML templates for the application.
+        import { getHomePage, getTestPage } from './util/templateEngine.js'
+
+        //This sets up a route handler for the root URL ('/') of the application. When a client makes a GET request to this URL, the 'res.send' function will send our HTML page to the client. 
+        app.get('/', (req, res) => {
+        const homePageHtmlFile =  getHomePage({
+            tabTitle: "Node assignment | Home"
+        })
+            res.send(homePageHtmlFile)
+        })
+
+        //This does the same for the ('/test') URL.
+        app.get('/test', (req, res) => {
+            const testPageHtmlFile =  getTestPage({
+                tabTitle: "Node assignment | Test"
+            })
+                res.send(testPageHtmlFile)
+            })
+
+        //This starts the Express application by listening on the specified port. 
+        const port = process.env.PORT || 3000
+        app.listen(port, () => console.log(`listening on port ${port}`)) 
+    </pre>
+    7. Create our custome module which we call 'templateEngine'
+    <br>Create the util directory
+    <pre>
+        mkdir util
+    </pre>
+    Create the templateEngine file
+    <pre>
+        touch templateEngine.js
+    </pre>
+    8. Add this inside 'templateEngine.js'
+    <pre>
+        //Imports the Node.js fs module which provides functionality for working with the file system.
+        import fs from "fs"
+        import escape from "escape-html"
+
+        //Returs the modified HTML file
+        function getHomePage(config={}){
+            
+            const homePageHtmlFile =  fs.readFileSync('./public/homepage.html')
+                .toString()
+                .replace('$TAB_TITLE', config.tabTitle || '')
+                
+            return homePageHtmlFile
+        }
+
+        function getTestPage(config={}){
+            
+            const homeTestHtmlFile =  fs.readFileSync('./public/testpage.html')
+                .toString()
+                .replace('$TAB_TITLE', config.tabTitle || '')
+                
+            return homeTestHtmlFile
+        }
+
+        //Exports these functions 
+        export { getHomePage, getTestPage }   
+    </pre>
+    9. Create HTML files.
+    <br>Create the 'public' directory
+    <pre>
+        mkdir public
+    </pre>
+    Create the files homepage.html testpage.html homepage.css testpage.css
+    <pre>
+        cd public
+        touch homepage.html testpage.html homepage.css testpage.css
+    </pre>
+
+    Inside homepage.html
+    <pre id="file1"></pre>
+
+    Inside testpage.html
+    <pre id="file2"></pre>
+    
+</p>
+<hr>
+<!-- <pre>
+    // This is a code snippet in JavaScript
+    function greet(name) {
+      console.log(`Hello, ${name}!`);
+    }
+  
+    greet("World");
+  </pre> -->
+  
+  <script>
+/*     import fs from "fs"
+    const file1 =  fs.readFileSync('../../../html.txt').toString()
+    console.log(file1); */
+let file1 = document.getElementById('file1')
+
+    fetch('../../../html.txt')
+  .then(response => response.text())
+  .then(data => {
+    file1.innerText = data
+     // the contents of the file as a string
+  })
+  .catch(error => {
+    file1.innerText = 'Error'
+    console.error('Error:', error);
+  });
+
+  let file2 = document.getElementById('file2')
+
+    fetch('../../../html2.txt')
+  .then(response => response.text())
+  .then(data => {
+    file2.innerText = data
+     // the contents of the file as a string
+  })
+  .catch(error => {
+    file2.innerText = 'Error'
+    console.error('Error:', error);
+  });
+
+
+</script>
