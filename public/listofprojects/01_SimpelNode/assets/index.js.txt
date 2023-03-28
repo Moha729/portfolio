@@ -1,0 +1,31 @@
+        //This imports the express library/module and assigns it to the express variable.
+        import express from 'express'
+
+        //This creates a new Express application and assigns it to the app variable.
+        const app = express()
+
+        //This allows us to use the express.static middleware function, which serves static files from the public directory. 
+        app.use(express.static("public"))
+
+        //This imports two functions from our custom module that generates HTML templates for the application.
+        import { getHomePage, getTestPage } from './util/templateEngine.js'
+
+        //This sets up a route handler for the root URL ('/') of the application. When a client makes a GET request to this URL, the 'res.send' function will send our HTML page to the client. 
+        app.get('/', (req, res) => {
+        const homePageHtmlFile =  getHomePage({
+            tabTitle: "Node assignment | Home"
+        })
+            res.send(homePageHtmlFile)
+        })
+
+        //This does the same for the ('/test') URL.
+        app.get('/test', (req, res) => {
+            const testPageHtmlFile =  getTestPage({
+                tabTitle: "Node assignment | Test"
+            })
+                res.send(testPageHtmlFile)
+            })
+
+        //This starts the Express application by listening on the specified port. 
+        const port = process.env.PORT || 3000
+        app.listen(port, () => console.log(`listening on port ${port}`)) 

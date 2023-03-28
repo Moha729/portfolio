@@ -1,0 +1,60 @@
+.div1 {
+    display: flex;
+    justify-content: center;
+}
+
+.div2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+/*     border: 1px solid red;
+ */    width: 56%;
+}
+
+.div3 {
+    display: flex;
+    flex-direction: column;
+/*     justify-content: center;
+ */    align-items: center;
+    border: 0px solid black;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    height: 200px;
+}
+
+.div4 {
+    display: flex;
+    justify-content: center;
+/*     border: 2px solid blue;
+    width: 100%; */
+    font-family: 'Quicksand', sans-serif;
+    color: rgba(242, 247, 190, 0.764);
+    text-shadow: 5px 0px 7px #171313bb;
+    font-size: 1.8em;
+    padding: 30px;
+    margin: -22px 0px 0px 0px;
+    overflow: hidden;
+    text-align: center;
+
+}
+
+.d41 {
+    background-color: rgb(203, 128, 128);
+}
+
+.d42 {
+    background-color: rgb(198, 228, 153);
+}
+
+.d43 {
+    background-color: rgb(248, 248, 220);
+}
+
+.d44 {
+    background-color: rgb(154, 139, 168);
+}
+
+body {
+    background-color: black;
+}

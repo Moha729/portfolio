@@ -1,0 +1,25 @@
+        //Imports the Node.js fs module which provides functionality for working with the file system.
+        import fs from "fs"
+        import escape from "escape-html"
+
+        //Returs the modified HTML file.
+        function getHomePage(config={}){
+            
+            const homePageHtmlFile =  fs.readFileSync('./public/homepage.html')
+                .toString()
+                .replace('$TAB_TITLE', config.tabTitle || '')
+                
+            return homePageHtmlFile
+        }
+
+        function getTestPage(config={}){
+            
+            const homeTestHtmlFile =  fs.readFileSync('./public/testpage.html')
+                .toString()
+                .replace('$TAB_TITLE', config.tabTitle || '')
+                
+            return homeTestHtmlFile
+        }
+
+        //Exports these functions.
+        export { getHomePage, getTestPage }   

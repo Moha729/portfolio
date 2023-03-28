@@ -6,47 +6,70 @@ app.use(express.static("public"));
 
 //import templateEngine from '/Users/Dell 7480/Desktop/Portfolio/portfolio/portfolio/public/util/templateEngine.js';
 //const templateEngine = require('/public/util/templateEngine.js')
-import { isThereConnection, getHomePage, getCvPage, getListofprojectsPage, getAboutmePage } from './util/templateEngine.js';
+import { getPage} from './util/templateEngine.js';
 
-console.log(isThereConnection());
 
 /* 
 /home
 /cv
 /listofprojects
+ -/simple_node
  - /thisportfolio
 /aboutme
 /moreaboutme 
 */
 
 app.get('/', (req, res) => {
-    //const homePageHtmlFile =  (__dirname + '/public/homepage/homepage.html')
-//I want to render the page just.
-const homePageHtmlFile =  getHomePage({
-    tabTitle: "Portfolio | Home"
+const homePageHtmlFile =  getPage({
+    pagePath: './public/homepage/homepage.html',
+    tabTitle: "Portfolio | Home",
+    cssLink: `<link rel="stylesheet" href="./homepage/homepage.css">`,
+    div1: 'CV',
+    div2: 'Projects',
+    div3: 'About me',
+    div4: 'contact',
+    link1: 'cv',
+    link2: 'listofprojects',
+    link3: 'aboutme',
+    link4: ''
 })
     res.send(homePageHtmlFile)
 })
 
 app.get('/cv', (req, res) => {
-    const cvPageHtmlFile = getCvPage({
+    const cvPageHtmlFile = getPage({
+        pagePath: './public/cv/cv.html', 
         tabTitle: "Portfolio | CV"
     })
     res.send(cvPageHtmlFile)
 })
 
 app.get('/listofprojects', (req, res) => {
-    const listofprojectsPageHtmlFile = getListofprojectsPage({
-        tabTitle: "Portfolio | Projects"
+    const listofprojectsPageHtmlFile = getPage({
+        pagePath: './public/listofprojects/listofprojects.html',
+        tabTitle: "Portfolio | Projects",
+        cssLink: `<link rel="stylesheet" href="./listofprojects.css">`,
+        div1: 'Simple NodeJS',
+        link1: 'listofprojects/simplenode'
     })
     res.send(listofprojectsPageHtmlFile)
 })
 
 app.get('/aboutme', (req, res) =>   {
-    const aboutmePageHtmlFile = getAboutmePage({
+    const aboutmePageHtmlFile = getPage({
+        pagePath: './public/aboutme/aboutme.html', 
         tabTitle: "Portfolio | About me"
     })
     res.send(aboutmePageHtmlFile)
+})
+
+//PROJECTS
+app.get('/listofprojects/simplenode', (req, res) => {
+    const simpleNodePageHtmlFile = getPage({
+        pagePath: './public/listofprojects/01_SimpelNode/simpelnode.html',
+        tabTitle: "Project | Simple NodeJS"
+    })
+    res.send(simpleNodePageHtmlFile)
 })
 
 
