@@ -48,18 +48,79 @@
     <div id="col2"></div>
 </div>
 
+<div id="rubric_container"></div>
+
 <template id="rubric_template">
-    <div id="rubric_card">
-        <h4 id="rubric_title">dd</h4>
-        <p id="rubric_content">ff</p>
+    <div class="rubric">
+      <h4 class="rubric_title"></h4>
+      <ul class="lesson_list"></ul>
     </div>
-</template>
+  </template>
+  
 
-<template id="content_template">
-    
-</template>
-
+<!-- <template id="rubric_template">
+    <div id="rubric_container">
+      <h4 id="rubric_title">dd</h4>
+      <div id="content_container"></div>
+      <template id="content_template">
+        <div>
+          <p id="content_content">hello world</p>
+        </div>
+      </template>
+    </div>
+  </template> -->
+  
 <script>
+
+    function handleObjects(data){
+        // Assume that the data is an array of objects with title and lessons properties
+data.forEach((item) => {
+  // Clone the template
+  const template = document.getElementById("rubric_template");
+  const rubric = template.content.cloneNode(true);
+
+  // Set the title
+  const titleElement = rubric.querySelector(".rubric_title");
+  titleElement.textContent = item.title;
+
+  // Set the lessons
+  const lessonList = rubric.querySelector(".lesson_list");
+  item.lessons.forEach((lesson) => {
+    const lessonItem = document.createElement("li");
+    lessonItem.textContent = lesson;
+    lessonList.appendChild(lessonItem);
+  });
+
+  // Append the rubric to the container
+  const container = document.getElementById(item.category);
+  container.appendChild(rubric);
+
+  console.log(item);
+});
+
+/*         objects.forEach(element => {
+            const rubric_template = document.getElementById('rubric_template')
+
+            const rubric_container = document.getElementById('rubric_container')
+
+            const rubric_card = rubric_template.content.cloneNode(true)
+
+            rubric_card.getElementById("rubric_title").innerText = element.title
+
+            element.lessons.forEach(lesson => {
+                const content_template = document.getElementById('content_template')
+
+                const content_card = content_template.content.cloneNode(true)
+
+                content_card.getElementById("content_content").innerText = 'hello: 1'
+                
+                rubric_card.querySelector('#content_container').appendChild(content_card)
+            })
+
+            const rubric_container2 = document.getElementById(element.category)
+            rubric_container2.appendChild(rubric_card)
+        }) */
+    }
 
     async function main () {
 
@@ -73,28 +134,79 @@
 
     main()
 
-    function handleObjects(objects){
+/*     function handleObjects(objects){
         objects.forEach(element => {
 
             const rubric_template = document.getElementById('rubric_template')
             const rubric_card = rubric_template.content.cloneNode(true)
 
             rubric_card.getElementById("rubric_title").innerText = element.title
-            rubric_card.getElementById("rubric_content").textContent = element.lesson1
+            //rubric_card.getElementById("rubric_content").textContent = element.lessons[0]
+            //---------------------------------------------------------------------------
+            element.lessons.forEach(obj => {
+                const content_template = document.getElementById('content_template')
+                const content_card = content_template.content.cloneNode(true)
+                content_card.getElementById("content_content").textContent = obj
+                const content_container = document.getElementById('rubric_content')
+                content_container.appendChild(content_card)
+            })
+            
+            //---------------------------------------------------------------------------
 
-            const container = document.getElementById(element.category)
-            container.appendChild(rubric_card)
+            const rubric_container = document.getElementById(element.category)
+            rubric_container.appendChild(rubric_card)
+
+            //---------------------------------------------------------------------------
+             const content_template = document.getElementById('content_template')
+            const content_card = content_template.content.cloneNode(true)
+
+            content_card.getElementById("content_content").textContent = element.lessons[1]
+
+            const content_container = document.getElementById('rubric_content')
+            content_container.appendChild(content_card) 
+
+            //---------------------------------------------------------------------------
 
 
+
+            console.log(element.lessons.length);
+            //element.lessons.forEach(obj => console.log(obj))
         })
     }
-    
+     */
 async function readAssetFile (path) {
 
     const response = await fetch(path)
     const data = await response.json()
     return data
     }
+
+
+/*     function handleObjects(objects) {
+    objects.forEach(element => {
+
+    const rubric_template = document.getElementById('rubric_template');
+    const rubric_card = rubric_template.content.cloneNode(true);
+
+    const rubric_title = rubric_card.getElementById('rubric_title');
+    rubric_title.innerText = element.title;
+
+    const content_container = rubric_card.getElementById('rubric_content');
+
+    element.lessons.forEach(obj => {
+    const content_template = document.getElementById('content_template');
+    const content_card = content_template.content.cloneNode(true);
+
+    const content_content = content_card.getElementById('content_content');
+    content_content.textContent = obj;
+
+    content_container.appendChild(content_card);
+    });
+
+    const rubric_container = document.getElementById(element.category);
+    rubric_container.appendChild(rubric_card);
+});
+} */
 
 
 
