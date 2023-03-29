@@ -17,7 +17,7 @@ function getPage(config={}){
     .replace('$LINK_2', config.link2)
     .replace('$LINK_3', config.link3)
     .replace('$LINK_4', config.link4)
-//    const navbar = getNavbar({tabTitle: config.tabTitle, cssLink: config.cssLink})
+
     return  navbar + page
 }
 

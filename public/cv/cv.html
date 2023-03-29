@@ -1,4 +1,123 @@
 <h1>Welcome to my CV!</h1>
+
+<div id="cvheader">
+
+    <div id="myname">
+        <h2>$MY_FULL_NAME</h2>
+    </div>
+
+    <div id="picture_contactinfo">
+        <div id="mypicture">
+            <h2>IMAGE</h2>
+        </div>
+
+        <div id="mycontactinfo">
+            <h5>$MY_RESIDENCE</h5>
+            <h5>$MY_EMAIL</h5>
+            <h5>$MY_BIRTH_YEAR</h5>
+        </div>
+    </div>
+</div>
+
+<div id="cvbody">
+    <div id="col1">
+        <div id="relevantexperience">
+            <h3 class="cv_sub_title">Educational experience</h3>
+        </div>
+        <div id="workexperience">
+            <h3 class="cv_sub_title">Work experience</h3>
+
+        </div>
+        <div id="voluntarilywork">
+            <h3 class="cv_sub_title">Voluntarily work</h3>
+
+        </div>
+        <div id="otherexperience">
+            <h3 class="cv_sub_title">Other experience</h3>
+
+        </div>
+        <div id="lanuages">
+            <h3 class="cv_sub_title">Lanuages</h3>
+
+        </div>
+        <div id="certificates">
+            <h3 class="cv_sub_title">Certificates</h3>
+
+        </div>    
+    </div>
+    <div id="col2"></div>
+</div>
+
+<template id="rubric_template">
+    <div id="rubric_card">
+        <h4 id="rubric_title">dd</h4>
+        <p id="rubric_content">ff</p>
+    </div>
+</template>
+
+<template id="content_template">
+    
+</template>
+
+<script>
+
+    async function main () {
+
+
+        let data = await readAssetFile('./assets/cv_config.json')
+
+        const objects = Object.values(data) //converted it to array
+
+        handleObjects(objects)
+    }
+
+    main()
+
+    function handleObjects(objects){
+        objects.forEach(element => {
+
+            const rubric_template = document.getElementById('rubric_template')
+            const rubric_card = rubric_template.content.cloneNode(true)
+
+            rubric_card.getElementById("rubric_title").innerText = element.title
+            rubric_card.getElementById("rubric_content").textContent = element.lesson1
+
+            const container = document.getElementById(element.category)
+            container.appendChild(rubric_card)
+
+
+        })
+    }
+    
+async function readAssetFile (path) {
+
+    const response = await fetch(path)
+    const data = await response.json()
+    return data
+    }
+
+
+
+/*     const rubric_templates = ["relevantexperience", "workexperience", "voluntarilywork", "otherexperience", "lanuages", "certificates"]
+
+    const rubric_template = document.getElementById('rubric_template')
+
+    const rubric_card = rubric_template.content.cloneNode(true)
+
+    rubric_card.getElementById("rubric_title").innerText = 'hello' 
+    rubric_card.getElementById("rubric_content").textContent = 'world'
+
+    const container = document.getElementById(rubric_templates[2])
+    container.appendChild(rubric_card)
+
+    console.log('what'); */
+
+</script>
+
+
+
+
+
     
 </main>
 </body>

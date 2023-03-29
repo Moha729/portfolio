@@ -1,0 +1,21 @@
+#cvheader {
+    background-color: rgb(80, 145, 211);
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 150px;
+    padding: 2%;
+}
+
+#picture_contactinfo {
+    display: inline;
+
+    background-color: brown;
+
+    height: 550px;
+
+    margin-bottom: 220px;
+}

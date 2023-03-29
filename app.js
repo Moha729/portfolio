@@ -4,8 +4,6 @@ const app = express()
 app.use(express.static("public"));
 
 
-//import templateEngine from '/Users/Dell 7480/Desktop/Portfolio/portfolio/portfolio/public/util/templateEngine.js';
-//const templateEngine = require('/public/util/templateEngine.js')
 import { getPage} from './util/templateEngine.js';
 
 
@@ -39,7 +37,8 @@ const homePageHtmlFile =  getPage({
 app.get('/cv', (req, res) => {
     const cvPageHtmlFile = getPage({
         pagePath: './public/cv/cv.html', 
-        tabTitle: "Portfolio | CV"
+        tabTitle: "Portfolio | CV",
+        cssLink: `<link rel="stylesheet" href="./cv.css">`
     })
     res.send(cvPageHtmlFile)
 })

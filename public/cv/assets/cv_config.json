@@ -1,0 +1,26 @@
+{
+"a": {
+    "category": "relevantexperience",
+    "title": "experience1",
+    "years": "2021-2022",
+    "lesson1": "l1",
+    "lesson2": "l2",
+    "lesson3": "l3"
+},
+"b": {
+    "category": "relevantexperience",
+    "title": "experience2",
+    "years": "2020-2022",
+    "lesson1": "l1",
+    "lesson2": "l2",
+    "lesson3": "l3"
+},
+"c": {
+    "category": "workexperience",
+    "title": "experience1",
+    "years": "2021-2022",
+    "lesson1": "l1",
+    "lesson2": "l2",
+    "lesson3": "l3"
+}
+}
