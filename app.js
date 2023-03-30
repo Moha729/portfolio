@@ -7,16 +7,6 @@ app.use(express.static("public"));
 import { getPage} from './util/templateEngine.js';
 
 
-/* 
-/home
-/cv
-/listofprojects
- -/simple_node
- - /thisportfolio
-/aboutme
-/moreaboutme 
-*/
-
 app.get('/', (req, res) => {
 const homePageHtmlFile =  getPage({
     pagePath: './public/homepage/homepage.html',
@@ -81,7 +71,5 @@ app.get('/listofprojects/simplenode', (req, res) => {
     res.send(simpleNodePageHtmlFile)
 })
 
-
-app.listen(8080, () => {
-    console.log('running on port: 8080')
-})
+const port = process.env.PORT || 8080
+app.listen(port, () => console.log(`listening on port ${port}`)) 
