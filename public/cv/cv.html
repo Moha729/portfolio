@@ -1,59 +1,75 @@
+
 <h1>Welcome to my CV!</h1>
 
-<div id="cvheader">
 
-    <div id="myname">
+<div id="outter_wrapper">
+<div id="full_wrapper">
+
+    <div id="cvheader">
+
+    <div id="myname" class="nametag">
         <h2>$MY_FULL_NAME</h2>
     </div>
 
     <div id="picture_contactinfo">
         <div id="mypicture">
-            <h2>IMAGE</h2>
+            <p>IMAGE</p>
         </div>
 
-        <div id="mycontactinfo">
-            <h5>$MY_RESIDENCE</h5>
-            <h5>$MY_EMAIL</h5>
-            <h5>$MY_BIRTH_YEAR</h5>
+        <div id="mycontactinfo" class="contactinfotag">
+            <p>$MY_RESIDENCE</p>
+            <p>$MY_EMAIL</p>
+            <p>$MY_BIRTH_YEAR</p>
         </div>
     </div>
 </div>
 
 <div id="cvbody">
     <div id="col1">
-        <div id="relevantexperience">
-            <h3 class="cv_sub_title">Educational experience</h3>
+        <hr>
+        <div id="itexperience" >
+            <p class="cv_sub_title">It experience</p>
         </div>
+        <hr>
+
+        <div id="relevantexperience" >
+            <p class="cv_sub_title">Educational experience</p>
+        </div>
+
+
         <div id="workexperience">
-            <h3 class="cv_sub_title">Work experience</h3>
+            <p class="cv_sub_title">Work experience</p>
 
         </div>
         <div id="voluntarilywork">
-            <h3 class="cv_sub_title">Voluntarily work</h3>
+            <p class="cv_sub_title">Voluntarily work</p>
 
         </div>
         <div id="otherexperience">
-            <h3 class="cv_sub_title">Other experience</h3>
+            <p class="cv_sub_title">Other experience</p>
 
         </div>
         <div id="lanuages">
-            <h3 class="cv_sub_title">Lanuages</h3>
+            <p class="cv_sub_title">Lanuages</p>
 
         </div>
         <div id="certificates">
-            <h3 class="cv_sub_title">Certificates</h3>
+            <p class="cv_sub_title">Certificates</p>
 
         </div>    
     </div>
     <div id="col2"></div>
+</div>
+</div>
 </div>
 
 <div id="rubric_container"></div>
 
 <template id="rubric_template">
     <div class="rubric">
-      <h4 class="rubric_title"></h4>
-      <ul class="lesson_list"></ul>
+      <p class="rubric_title"></p>
+      <p class="rubric_year"></p>
+      <pre class="lesson_list"></pre>
     </div>
   </template>
   
@@ -83,10 +99,14 @@ data.forEach((item) => {
   const titleElement = rubric.querySelector(".rubric_title");
   titleElement.textContent = item.title;
 
+  // Set the year
+  const yearElement = rubric.querySelector(".rubric_year")
+  yearElement.textContent = item.years
+
   // Set the lessons
   const lessonList = rubric.querySelector(".lesson_list");
   item.lessons.forEach((lesson) => {
-    const lessonItem = document.createElement("li");
+    const lessonItem = document.createElement("p");
     lessonItem.textContent = lesson;
     lessonList.appendChild(lessonItem);
   });

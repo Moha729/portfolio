@@ -17,6 +17,11 @@ function getPage(config={}){
     .replace('$LINK_2', config.link2)
     .replace('$LINK_3', config.link3)
     .replace('$LINK_4', config.link4)
+    .replace('$MY_FULL_NAME', config.myfullname)
+    .replace('$MY_RESIDENCE', config.myresidence)
+    .replace('$MY_EMAIL', config.myemail)
+    .replace('$MY_BIRTH_YEAR', config.mybirthyear)
+    .replace('$CV_IMAGE', config.cvimagelink)
 
     return  navbar + page
 }

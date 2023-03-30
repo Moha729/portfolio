@@ -1,34 +1,9 @@
 {
 "a": {
-    "category": "relevantexperience",
-    "title": "experience1",
-    "years": "2021-2022",
+    "category": "itexperience",
+    "title": "KEA",
+    "years": "aug 2021 - jan 2024",
     "lessons": [
-        "l1",
-        "l2",
-        "l3",
-        "l4"
-        
-    ]
-},
-"b": {
-    "category": "relevantexperience",
-    "title": "experience2",
-    "years": "2020-2022",
-    "lessons": [
-        "l1",
-        "l2",
-        "l3"        
-    ]
-},
-"c": {
-    "category": "workexperience",
-    "title": "experience3",
-    "years": "2021-2022",
-    "lessons": [
-        "l1",
-        "l2",
-        "l3"        
     ]
 }
 }

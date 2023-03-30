@@ -38,7 +38,11 @@ app.get('/cv', (req, res) => {
     const cvPageHtmlFile = getPage({
         pagePath: './public/cv/cv.html', 
         tabTitle: "Portfolio | CV",
-        cssLink: `<link rel="stylesheet" href="./cv.css">`
+        cssLink: `<link rel="stylesheet" href="./cv.css">`,
+        myfullname: 'Mohammad Fadhil Abdul-Mahdi',
+        myresidence: '2720 Vanløse',
+        myemail: 'moha729@stud.kea.dk',
+        mybirthyear: '1990'
     })
     res.send(cvPageHtmlFile)
 })
@@ -49,7 +53,13 @@ app.get('/listofprojects', (req, res) => {
         tabTitle: "Portfolio | Projects",
         cssLink: `<link rel="stylesheet" href="./listofprojects.css">`,
         div1: 'Simple NodeJS',
-        link1: 'listofprojects/simplenode'
+        link1: 'listofprojects/simplenode',
+        div2: 'Home',
+        div3: 'Home',
+        div4: 'Home',
+        link2: '',
+        link3: '',
+        link4: ''
     })
     res.send(listofprojectsPageHtmlFile)
 })

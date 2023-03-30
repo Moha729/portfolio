@@ -1,21 +1,98 @@
 #cvheader {
     background-color: rgb(80, 145, 211);
-    height: 300px;
+    height: 6em;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 3%;
+/*     margin-left: 3%;
     margin-right: 3%;
-    margin-top: 150px;
-    padding: 2%;
+ */    margin-top: 150px;
+    padding: 0 3em 0 2em ;
+    border-radius: .5em;
+}
+
+#outter_wrapper {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+
+}
+
+#full_wrapper {
+    background-color: white;
+    width: 65%;
 }
 
 #picture_contactinfo {
     display: inline;
 
-    background-color: brown;
+/*     background-color: brown;
 
-    height: 550px;
+    height: 250px;
+ */
+    max-width: 15em;
 
-    margin-bottom: 220px;
+    margin-bottom: 70px;
+
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+    font-size: max(.55em);
+    color: whitesmoke;
+
+}
+
+#cvheader{
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+}
+
+#cvbody{
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+
+}
+
+#col1 {
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+
+
+.nametag{
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(246, 247, 249);
+    font-size: max(.6em);
+}
+
+.cv_sub_title{
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+    font-size: 1.9em;
+    font-weight: bold;
+}
+
+.rubric_title{
+    font-family: Geneva, Arial, sans-serif;
+    color: black
+    font-size: 1.2em;
+    margin: 0px 0px 10px 1em;
+    font-weight:bolder;
+
+}
+
+.rubric_year{
+    padding: 0px;
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+    font-size: .7em;
+    margin: 0px 0px 0px 3em;
+}
+
+.lesson_list{
+    padding: 0px;
+    font-family: Geneva, Arial, sans-serif;
+    color: rgb(19, 33, 112);
+    font-size: 1em;
+    margin: 0px 0px 0px 3em;
 }
