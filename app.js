@@ -1,13 +1,20 @@
-import express from 'express'
+const express = require('express')
+const getPage = require('./util/templateEngine.js')
+const readFile = require('./util/fileReader.js')
+
 const app = express()
 
 app.use(express.static("public"));
 
+const cv_elements = []
 
-import { getPage} from './util/templateEngine.js';
+const array = readFile('./public/cv/assets/cv_config.json', 'json')
+
 
 
 app.get('/', (req, res) => {
+
+
 const homePageHtmlFile =  getPage({
     pagePath: './public/homepage/homepage.html',
     tabTitle: "Portfolio | Home",
@@ -29,10 +36,12 @@ app.get('/cv', (req, res) => {
         pagePath: './public/cv/cv.html', 
         tabTitle: "Portfolio | CV",
         cssLink: `<link rel="stylesheet" href="./cv.css">`,
+        jsFile: `<script src="../cv/cv.js" defer></script>`,
         myfullname: 'Mohammad Fadhil Abdul-Mahdi',
         myresidence: '2720 Vanløse',
         myemail: 'moha729@stud.kea.dk',
-        mybirthyear: '1990'
+        mybirthyear: '1990',
+        jsondataarray: array
     })
     res.send(cvPageHtmlFile)
 })
@@ -62,7 +71,6 @@ app.get('/aboutme', (req, res) =>   {
     res.send(aboutmePageHtmlFile)
 })
 
-//PROJECTS
 app.get('/listofprojects/simplenode', (req, res) => {
     const simpleNodePageHtmlFile = getPage({
         pagePath: './public/listofprojects/01_SimpelNode/simpelnode.html',
@@ -72,4 +80,10 @@ app.get('/listofprojects/simplenode', (req, res) => {
 })
 
 const port = process.env.PORT || 8080
-app.listen(port, () => console.log(`listening on port ${port}`)) 
+
+const server = app.listen(port, () => {
+    console.log(`listening on port ${port}`)
+  })
+
+  
+module.exports =  { app, server };

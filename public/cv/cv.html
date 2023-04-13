@@ -8,18 +8,18 @@
     <div id="cvheader">
 
     <div id="myname" class="nametag">
-        <h2>$MY_FULL_NAME</h2>
+        <h2> $MY_FULL_NAME </h2>
     </div>
 
     <div id="picture_contactinfo">
         <div id="mypicture">
-            <p>IMAGE</p>
+            <p> IMAGE </p>
         </div>
 
         <div id="mycontactinfo" class="contactinfotag">
-            <p>$MY_RESIDENCE</p>
-            <p>$MY_EMAIL</p>
-            <p>$MY_BIRTH_YEAR</p>
+            <p> $MY_RESIDENCE </p>
+            <p> $MY_EMAIL </p>
+            <p> $MY_BIRTH_YEAR </p>
         </div>
     </div>
 </div>
@@ -32,7 +32,7 @@
         </div>
         <hr>
 
-        <div id="relevantexperience" >
+        <div id="educationexperience" >
             <p class="cv_sub_title">Educational experience</p>
         </div>
 
@@ -72,62 +72,20 @@
       <pre class="lesson_list"></pre>
     </div>
   </template>
-  
+  <script src="../cv/cv.js" ></script>
 
-  
-<script>
 
-function handleObjects(data){
-        // Assume that the data is an array of objects with title and lessons properties
-data.forEach((item) => {
-  // Clone the template
-  const template = document.getElementById("rubric_template");
-  const rubric = template.content.cloneNode(true);
+ <script>
 
-  // Set the title
-  const titleElement = rubric.querySelector(".rubric_title");
-  titleElement.textContent = item.title;
+const data = $CV_JSON_DATA_ARRAY
 
-  // Set the year
-  const yearElement = rubric.querySelector(".rubric_year")
-  yearElement.textContent = item.years
+const objects = Object.values(data) 
 
-  // Set the lessons
-  const lessonList = rubric.querySelector(".lesson_list");
-  item.lessons.forEach((lesson) => {
-    const lessonItem = document.createElement("p");
-    lessonItem.textContent = lesson;
-    lessonList.appendChild(lessonItem);
-  });
+handleObjects(objects)
 
-  // Append the rubric to the container
-  const container = document.getElementById(item.category);
-  container.appendChild(rubric);
-
-  console.log(item);
-});
-
-    }
-
-    async function main () {
-
-        let data = await readAssetFile('./assets/cv_config.json')
-
-        const objects = Object.values(data) //converted it to array
-
-        handleObjects(objects)
-    }
-
-    main()
-
-async function readAssetFile (path) {
-
-    const response = await fetch(path)
-    const data = await response.json()
-    return data
-    }
-</script>
+ </script>
 
 </main>
+
 </body>
 </html>

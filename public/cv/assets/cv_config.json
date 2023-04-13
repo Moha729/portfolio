@@ -1,6 +1,94 @@
 {
 "a": {
-    "category": "itexperience",
+    "category": "educationexperience",
+    "title": "KEA",
+    "years": "Aug. 2021 - Jan. 2024",
+    "lessons": [
+    ]
+},
+"b": {
+    "category": "educationexperience",
+    "title": "Niels Brock Business School ",
+    "years": "2006 - 2009",
+    "lessons": [
+        "By having been a student in a business school I have gained experience with the process of running a company.",
+        "I can help with insights, strategies, planning and analyzing."
+    ]
+},
+"c": {
+    "category": "workexperience",
+    "title": "Landscape gardener",
+    "years": "2016 - 2021",
+    "lessons": [
+        "A lot insight in the Danish loabor market.",
+        "Independent and in teams built a lot garden projects.",
+        "Working in high pressure environments.",
+        "Planning projects and make sure to complete them in time."
+    ]
+},
+"d": {
+    "category": "otherexperience",
+    "title": "Military service ",
+    "years": "Feb. 2009 - Jun. 2009",
+    "lessons": [
+        "Responsibility",
+        "Values",
+        "Discipline",
+        "Purpose",
+        "Order"
+    ]
+},
+"e": {
+    "category": "voluntarilywork",
+    "title": "Municipal project for vulnerable young people. ",
+    "years": "2008",
+    "lessons": [
+    ]
+},
+"f": {
+    "category": "voluntarilywork",
+    "title": "Football assistant coach. ",
+    "years": "2008",
+    "lessons": [
+    ]
+},
+"g": {
+    "category": "voluntarilywork",
+    "title": "The National Emergency Management Agency. ",
+    "years": "2015 - 2016",
+    "lessons": [
+    ]
+},
+"h": {
+    "category": "certificates",
+    "title": "Driving License - ordinary car (B)",
+    "years": "",
+    "lessons": [
+    ]
+},
+"i": {
+    "category": "lanuages",
+    "title": "Danish",
+    "years": "",
+    "lessons": [
+    ]
+},
+"j": {
+    "category": "lanuages",
+    "title": "English",
+    "years": "",
+    "lessons": [
+    ]
+},
+"k": {
+    "category": "educationexperience",
+    "title": "KEA",
+    "years": "aug 2021 - jan 2024",
+    "lessons": [
+    ]
+},
+"l": {
+    "category": "educationexperience",
     "title": "KEA",
     "years": "aug 2021 - jan 2024",
     "lessons": [

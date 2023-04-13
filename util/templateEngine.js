@@ -1,5 +1,7 @@
-import fs from "fs";
-import escape from "escape-html";
+//import fs from "fs";
+//import escape from "escape-html";
+const fs = require('fs')
+const escape = require('escape-html')
 
 
 function getPage(config={}){
@@ -7,6 +9,7 @@ function getPage(config={}){
     .toString()
     .replace('$TAB_TITLE', config.tabTitle || 'portfolio')
     .replace('$CSS_LINK', config.cssLink || '')
+    .replace('$JS_FILE', config.jsFile || '')
 
     const page = fs.readFileSync(config.pagePath).toString()
     .replace('$DIV_1', config.div1)
@@ -22,8 +25,10 @@ function getPage(config={}){
     .replace('$MY_EMAIL', config.myemail)
     .replace('$MY_BIRTH_YEAR', config.mybirthyear)
     .replace('$CV_IMAGE', config.cvimagelink)
+    .replace('$CV_JSON_DATA_ARRAY', config.jsondataarray)
 
     return  navbar + page
 }
 
-export { getPage }
+//export { getPage }
+module.exports = getPage;
